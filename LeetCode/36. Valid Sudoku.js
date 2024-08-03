@@ -114,4 +114,30 @@ const board = [
   [".", ".", ".", ".", "8", ".", ".", "7", "9"],
 ];
 
-console.log(isValidSudoku(board));
+function ValidSudo(board) {
+  const n = board.length;
+  const mySet = new Set();
+
+  for (let row = 0; row < n; row++) {
+    for (let col = 0; col < n; col++) {
+      if (board[row][col] === ".") continue;
+      const r = `${board[row][col]} in row ${row}`;
+      const c = `${board[row][col]} in col ${col}`;
+      const b = `${board[row][col]} in box ${Math.floor(row / 3)}-${Math.floor(
+        col / 3
+      )}`;
+
+      if (mySet.has(r) || mySet.has(c) || mySet.has(b)) {
+        return false;
+      }
+
+      mySet.add(r);
+      mySet.add(c);
+      mySet.add(b);
+    }
+  }
+  // console.log(mySet);
+  return true;
+}
+console.log(ValidSudo(board));
+// console.log(isValidSudoku(board));
