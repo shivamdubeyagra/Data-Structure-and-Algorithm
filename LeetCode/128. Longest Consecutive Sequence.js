@@ -25,8 +25,6 @@ var longestConsecutive = function (nums) {
   if (nums.length === 0) return 0;
 
   nums.sort((a, b) => a - b);
-  console.log(nums);
-
   let longStreak = 1;
   let currStreak = 1;
 
