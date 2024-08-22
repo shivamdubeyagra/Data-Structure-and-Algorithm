@@ -48,7 +48,8 @@ var topKFrequent = function (nums, k) {
   return result.slice(0, k).map((x) => x[0]);
 };
 
-const nums = [1, 1, 1, 2, 2, 3],
-  k = 2;
+const nums = [1, 1, 1, 2, 2, 3];
+k = 2;
 
 console.log(topKFrequent(nums, k));
+// this is the good question
