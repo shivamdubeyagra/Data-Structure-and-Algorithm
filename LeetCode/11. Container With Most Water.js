@@ -22,30 +22,44 @@
 // 2 <= n <= 105
 // 0 <= height[i] <= 104
 
+// var maxArea = function (height) {
+//   let n = height.length;
+//   //   for(let i=0; i<n; i++){
+//   //     for(let j=i+1; i<n; j++){
+//   //         let area = (j-i)*Math.min(height[i],height[j])
+//   //         mx = Math.max(mx,area)
+//   //     }
+//   //   }
+//   //   console.log(mx)
+//   let i = 0;
+//   let j = n - 1;
+//   let mx = -Infinity;
+//   while (i < j) {
+//     let area = (j - i) * Math.min(height[i], height[j]);
+//     mx = Math.max(mx, area);
+//     if (height[i] < height[j]) {
+//       i++;
+//     } else {
+//       j--;
+//     }
+//   }
+//   return mx;
+// };
+
 var maxArea = function (height) {
-  let n = height.length;
-  //   for(let i=0; i<n; i++){
-  //     for(let j=i+1; i<n; j++){
-  //         let area = (j-i)*Math.min(height[i],height[j])
-  //         mx = Math.max(mx,area)
-  //     }
-  //   }
-  //   console.log(mx)
-  let i = 0;
-  let j = n - 1;
-  let mx = -Infinity;
-  while (i < j) {
-    let area = (j - i) * Math.min(height[i], height[j]);
-    mx = Math.max(mx, area);
-    if (height[i] < height[j]) {
-      i++;
-    } else {
-      j--;
-    }
+  let maxArea = 0; // Initialize the maximum area to zero
+  let left = 0; // Start with the left pointer at the beginning of the array
+  let right = height.length - 1; // Start with the right pointer at the end of the array
+
+  while (left < right) {
+    // Calculate the area between the two pointers
+    const currentArea = (right - left) * Math.min(height[left], height[right]);
+    // Update maxArea if the current area is larger
+    maxArea = Math.max(maxArea, currentArea);
+    // Move the pointer pointing to the shorter line inward
+    height[left] < height[right] ? left++ : right--;
   }
-  return mx;
+  return maxArea; // Return the maximum area found
 };
-
 const height = [1, 8, 6, 2, 5, 4, 8, 3, 7];
-
-console.log(maxArea(height));
+console.log(maxArea(height)); // Output: 49

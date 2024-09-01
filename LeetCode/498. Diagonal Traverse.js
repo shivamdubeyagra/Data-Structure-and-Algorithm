@@ -52,3 +52,29 @@ const mat2 = [
   [3, 4],
 ];
 console.log(findDiagonalOrder(mat2)); //Output: [1,2,4,7,5,3,6,8,9]
+
+// function findDuplicates(arr) {
+//   const seen = new Set();
+//   const duplicates = new Set();
+
+//   for (let num of arr) {
+//     if (seen.has(num)) {
+//       duplicates.add(num);
+//     } else {
+//       console.log(seen.add(num));
+//     }
+//   }
+//   return Array.from(duplicates);
+// }
+
+// const arr = [1, 2, 3, 4, 4, 5, 6, 7, 8, 8, 9, 10, 10];
+// const result = findDuplicates(arr);
+// console.log(result); // Output: [4, 8, 10]
+// // function findDuplicates(arr) {
+// //   const seen = new Set();
+// //   return arr.filter(num => seen.has(num) ? true : seen.add(num) && false);
+// // }
+
+// // const arr = [1, 2, 3, 4, 4, 5, 6, 7, 8, 8, 9, 10, 10];
+// // const result = findDuplicates(arr);
+// // console.log(result); // Output: [4, 8, 10]
