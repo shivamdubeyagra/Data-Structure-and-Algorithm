@@ -45,3 +45,13 @@ var sumEvenAfterQueries = function (nums, queries) {
   }
   return result;
 };
+
+const nums = [1, 2, 3, 4],
+  queries = [
+    [1, 0],
+    [-3, 1],
+    [-4, 0],
+    [2, 3],
+  ];
+console.log(sumEvenAfterQueries(nums, queries));
+//Output: [ 8, 6, 2, 4 ]
