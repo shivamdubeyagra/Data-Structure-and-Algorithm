@@ -53,5 +53,24 @@ const nums = [1, 2, 3, 4],
     [-4, 0],
     [2, 3],
   ];
-console.log(sumEvenAfterQueries(nums, queries));
+// console.log(sumEvenAfterQueries(nums, queries));
+//Output: [ 8, 6, 2, 4 ]
+
+const sumEvenAfterQueriesOptimize = function (nums, queries) {
+  const result = [];
+  let sumEven = nums.reduce((sum, num) => (num % 2 === 0 ? sum + num : sum), 0);
+  queries.forEach((que) => {
+    const [value, index] = que;
+    if (nums[index] % 2 === 0) {
+      sumEven -= nums[index];
+    }
+    nums[index] += value;
+    if (nums[index] % 2 === 0) {
+      sumEven += nums[index];
+    }
+    result.push(sumEven);
+  });
+  return result;
+};
+console.log(sumEvenAfterQueriesOptimize(nums, queries));
 //Output: [ 8, 6, 2, 4 ]
