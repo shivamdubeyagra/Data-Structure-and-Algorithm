@@ -1,3 +1,4 @@
+/*
 const n = 6;
 for(let i=1; i<=n; i++){
     let x ='';
@@ -5,4 +6,16 @@ for(let i=1; i<=n; i++){
         x+=` ${i}`
     }
     console.log(x)
+}
+*/
+
+// Pattern -5 
+
+const n = 6;
+for(let i=0; i<n; i++){
+    let x = '';
+    for(let j=i; j<n; j++){
+        x+='* ';
+    }
+    console.log(x);
 }
