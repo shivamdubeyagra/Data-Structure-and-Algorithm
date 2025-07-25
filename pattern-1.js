@@ -22,7 +22,7 @@ for(let i=0; i<n; i++){
 */
 
 // pattern -6 
-
+/*
 const n = 6;
 for(let i=1; i<=n; i++){
     let x='';
@@ -30,5 +30,16 @@ for(let i=1; i<=n; i++){
         x+=`${j} `
     }
     console.log(x)
+}
+*/
+
+// pattern - 7
+
+const N = 6;
+
+for (let i = 1; i <= N; i++) {
+  let spaces = ' '.repeat(N - i);
+  let stars = '*'.repeat(2 * i - 1);
+  console.log(spaces + stars);
 }
 
