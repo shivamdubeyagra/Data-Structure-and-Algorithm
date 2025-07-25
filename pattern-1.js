@@ -34,7 +34,6 @@ for(let i=1; i<=n; i++){
 */
 
 // pattern - 7
-/*
 const N = 6;
 
 for (let i = 1; i <= N; i++) {
@@ -42,10 +41,9 @@ for (let i = 1; i <= N; i++) {
   let stars = '*'.repeat(2 * i - 1);
   console.log(spaces + stars);
 }
-*/
 
-// patten -8
-const N = 6;
+
+// patten -8 -9
 for (let i = N; i >= 1; i--) {
     let spaces = ' '.repeat(N - i);
     let stars = '*'.repeat(2 * i - 1);
