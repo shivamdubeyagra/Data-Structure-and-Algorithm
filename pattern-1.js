@@ -32,7 +32,7 @@ for(let i=1; i<=n; i++){
     console.log(x)
 }
 */
-
+/*
 // pattern - 7
 const N = 6;
 
@@ -47,5 +47,31 @@ for (let i = 1; i <= N; i++) {
 for (let i = N; i >= 1; i--) {
     let spaces = ' '.repeat(N - i);
     let stars = '*'.repeat(2 * i - 1);
+    console.log(spaces + stars);
+}
+*/
+// pattern - 10
+const n =6;
+for(let i=1; i<=n; i++){
+    let start = '*'.repeat(i);
+    console.log(start)
+}
+for(let i = n-1; i>=1; i--){
+        let start = '*'.repeat(i);
+    console.log(start)
+}
+// const n = 6;
+
+// Top half
+for(let i = 1; i <= n; i++) {
+    let spaces = '.'.repeat(n - i);
+    let stars = '*'.repeat(i);
+    console.log(spaces + stars);
+}
+
+// Bottom half
+for(let i = n - 1; i >= 1; i--) {
+    let spaces = '.'.repeat(n - i);
+    let stars = '*'.repeat(i);
     console.log(spaces + stars);
 }
