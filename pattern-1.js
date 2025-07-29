@@ -50,6 +50,8 @@ for (let i = N; i >= 1; i--) {
     console.log(spaces + stars);
 }
 */
+
+/*
 // pattern - 10
 const n =6;
 for(let i=1; i<=n; i++){
@@ -74,4 +76,16 @@ for(let i = n - 1; i >= 1; i--) {
     let spaces = '.'.repeat(n - i);
     let stars = '*'.repeat(i);
     console.log(spaces + stars);
+}
+*/
+// pattern -11
+const n =5;
+for(let i=1; i<=n; i++){
+    let x = '';
+    let val = (i%2 === 0) ? 0:1;
+    for(let j=1; j<=i; j++){
+        x+=`${val} `;
+        val=1-val;
+    }
+    console.log(x)
 }
