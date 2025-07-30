@@ -189,3 +189,15 @@ for (let i = 1; i <= n; i++) {
 }
 console.log(resutl)
 */
+/*
+pattern -18
+const n =6;
+let result='';
+for(let i=n-1; i>=0; i--){
+    for(let j=i; j<n; j++){
+        result+=`${String.fromCharCode(65 + j)}`
+    }   
+    result+='\n'
+}
+console.log(result)
+*/
