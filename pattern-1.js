@@ -157,6 +157,7 @@ for(let i=1; i<=n; i++){
 console.log(result)
 */
 // pattern -14
+/*
 let n = 5; // O(1)
 let char = {}; // O(1)
 let result = '' // O(N)
@@ -171,3 +172,20 @@ for(let i=1; i<=n; i++){ // O(N)
     result+='\n';
 }
 console.log(result)
+*/
+// pattern -17
+/*
+const n = 6;
+let resutl = '';
+for (let i = 1; i <= n; i++) {
+    resutl += ' '.repeat(n - i);
+    for (let j = 0; j < i; j++) {
+        resutl += String.fromCharCode(65 + j)
+    }
+    for (let j = i-2; j>=0; j--) {
+        resutl += String.fromCharCode(65 + j)
+    }
+    resutl+='\n'
+}
+console.log(resutl)
+*/
