@@ -107,6 +107,7 @@ for(let i=1; i<=n; i++){
 }
 console.log(resutl)
 */
+/*
 const n = 30;
 let result = '';
 
@@ -139,3 +140,19 @@ for (let i = 1; i <= n; i++) {
 }
 
 console.log(result);
+*/
+
+// pattern = 13
+/*
+let n=3;
+let result = '';
+let c = 1;
+for(let i=1; i<=n; i++){
+    for(let j=1; j<=i; j++){
+        result+=`${c} `
+        c++;
+    }
+    result+='\n'
+}
+console.log(result)
+*/
