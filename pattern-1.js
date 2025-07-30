@@ -156,3 +156,18 @@ for(let i=1; i<=n; i++){
 }
 console.log(result)
 */
+// pattern -14
+let n = 5; // O(1)
+let char = {}; // O(1)
+let result = '' // O(N)
+for(let i=1; i<=26; i++){ // O(26)
+    char[i] = String.fromCharCode(64+i); // O(1)
+}
+// O(N2)
+for(let i=1; i<=n; i++){ // O(N)
+    for(let j=1; j<=i; j++){ // O(N)
+        result+=`${char[i]} `; // O(1)
+    }
+    result+='\n';
+}
+console.log(result)
