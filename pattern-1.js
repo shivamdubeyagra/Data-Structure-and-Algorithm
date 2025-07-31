@@ -246,3 +246,20 @@ for(let i=1; i<n; i++){
 }
 console.log(result)
 */
+// pattern - 21
+/*
+const n = 10;
+let result='';
+for(let i=0; i<n; i++){
+    if(i==0 || i==n-1){
+        result+='*'.repeat(n)
+        result+='\n'
+    }else{
+        result+='*';
+        result+=' '.repeat(n-2);
+        result+='*';
+        result+='\n';
+    }
+}
+console.log(result)
+*/
