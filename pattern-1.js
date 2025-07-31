@@ -223,3 +223,26 @@ for(let i=1; i<=n; i++){
 }
 console.log(result)
 */
+
+//pattern - 20
+/*
+const n = 6;
+let result='';
+let sp= 2*n -2;
+for(let i=1; i<=n; i++){
+    result+='*'.repeat(i);
+    result+=' '.repeat(sp);
+    result+='*'.repeat(i);
+    sp-=2
+    result+='\n'
+}
+sp=2;
+for(let i=1; i<n; i++){
+    result+='*'.repeat(n-i);
+    result+=' '.repeat(sp);
+    result+='*'.repeat(n-i);
+    sp+=2
+    result+='\n'
+}
+console.log(result)
+*/
