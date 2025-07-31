@@ -263,3 +263,19 @@ for(let i=0; i<n; i++){
 }
 console.log(result)
 */
+
+// patter - 22
+function printPattern(N) {
+    const size = 2 * N - 1; // For N=3 => size = 5
+    for (let i = 0; i < size; i++) {
+        let row = "";
+        for (let j = 0; j < size; j++) {
+            const minDist = Math.min(i, j, size - 1 - i, size - 1 - j);
+            const value = N - minDist;
+            row += value + " ";
+        }
+        console.log(row.trim());
+    }
+}
+const n=3;
+printPattern(n)
