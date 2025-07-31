@@ -201,3 +201,25 @@ for(let i=n-1; i>=0; i--){
 }
 console.log(result)
 */
+// pattern - 19
+/*
+const n = 5;
+let result='';
+let sp= 0;
+for(let i=0; i<n; i++){
+    result+='*'.repeat(n-i);
+    result+=' '.repeat(sp);
+    result+='*'.repeat(n-i);
+    sp+=2
+    result+='\n'
+}
+sp=8;
+for(let i=1; i<=n; i++){
+    result+='*'.repeat(i);
+    result+=' '.repeat(sp);
+    result+='*'.repeat(i);
+    sp-=2
+    result+='\n'
+}
+console.log(result)
+*/
