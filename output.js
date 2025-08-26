@@ -64,7 +64,7 @@ function longestSubarrayPositive(arr, k) {
 
 // Example
 console.log(longestSubarrayPositive([1,2,3,1,1,1,1,4,2,3], 6)); // Output: 4
-*/
+
 
 // 560. subarray sum equal to k
 
@@ -84,3 +84,60 @@ function subarraySum (arr,k){
 }
 const nums = [1,2,3], k = 3;
 console.log(subarraySum(nums,k));
+*
+var sortColors = function (nums) {
+    let n = nums.length; // Get the length of the array
+    let i = 0, // Pointer for 0s
+      j = 0, // Current pointer
+      k = n - 1; // Pointer for 2s
+    // Process the array until the current pointer crosses the pointer for 2s
+    while (j <= k) {
+      if (nums[j] === 1) {
+        // If the current element is 1, just move to the next element
+        j++;
+      } else if (nums[j] === 2) {
+        // If the current element is 2, swap it with the element at the pointer for 2s
+        [nums[j], nums[k]] = [nums[k], nums[j]];
+        k--; // Move the pointer for 2s one step left
+      } else if (nums[j] === 0) {
+        // If the current element is 0, swap it with the element at the pointer for 0s
+        [nums[j], nums[i]] = [nums[i], nums[j]];
+        i++; // Move the pointer for 0s one step right
+        j++; // Move the current pointer to the next element
+      }
+    }
+    return nums; // Return the sorted array
+  };
+  const nums = [2, 0, 2, 1, 1, 0];
+  console.log(sortColors(nums)); // Output: [0, 0, 1, 1, 2, 2]
+  */
+
+
+  // 53. Maximum Subarray
+  var maxSubArray = function(nums) {
+    /*
+    const n = nums.length;
+    let sum = -Infinity;
+    for(let i=0; i<n; i++){
+        let subsum = 0;
+        let subarr = [];
+        for(let j=i; j<n; j++){
+            subsum+=nums[j];
+            subarr.push(nums[j]);
+        if(subsum>sum){
+            sum = subsum;
+        }
+        console.log(subarr)
+        }
+    }
+    return sum;
+    */
+    let currSum = -Infinity, maxSum = -Infinity;
+    for(const num of nums){
+        currSum = Math.max(num,currSum+num)
+        maxSum = Math.max(currSum,maxSum)
+    }
+    return maxSum;
+};
+const nums = [-2,1,-3,4,-1,2,1,-5,4];
+console.log(maxSubArray(nums));
