@@ -176,7 +176,7 @@ var spiralOrder = function(matrix) {
 const matrix = [[1,2,3],[4,5,6],[7,8,9]];
 console.log(spiralOrder(matrix));
 
-*/
+*
 var isAnagram = function(s, t) {
     if(s.length !== t.length) return false;
     const myMap = new Map();
@@ -192,3 +192,52 @@ var isAnagram = function(s, t) {
 };
 const s = "anagram", t = "nagaram";
 console.log(isAnagram(s,t));
+*
+var groupAnagrams = function(strs) {
+    const myMap = new Map();
+    for(const str of strs){
+        const key = str.split("").sort().join("");
+        if(!myMap.has(key)){
+            myMap.set(key,[])
+        }
+        myMap.get(key).push(str);
+    }
+    return [...myMap.values()]
+};
+const strs = ["eat","tea","tan","ate","nat","bat"];
+console.log(groupAnagrams(strs));
+
+let hashMap = {};
+for(let str of strs){
+    let freq = new Array(26).fill(0);
+    for(let char of str){
+        freq[char.charCodeAt(0)-'a'.charCodeAt(0)]++
+    }
+    let key = freq.join(',');
+    if(!hashMap[key]){
+        hashMap[key] = [] 
+    }
+    hashMap[key].push(str)
+}
+console.log(Object.values(hashMap))
+*/
+var productExceptSelf = function(nums) {
+    const n = nums.length;
+    const result = new Array(n).fill(1);
+
+    let prefix = 1;
+    for(let i = 0; i < n; i++){
+        result[i] = prefix;
+        prefix *= nums[i];
+    }
+
+    let suffix = 1;
+    for(let i = n - 1; i >= 0; i--){
+        result[i] *= suffix;
+        suffix *= nums[i];
+    }
+
+    return result;
+};
+const nums = [1,2,3,4];
+console.log(productExceptSelf(nums));
