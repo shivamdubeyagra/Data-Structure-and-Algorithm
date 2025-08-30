@@ -110,7 +110,7 @@ var sortColors = function (nums) {
   };
   const nums = [2, 0, 2, 1, 1, 0];
   console.log(sortColors(nums)); // Output: [0, 0, 1, 1, 2, 2]
-  */
+  *
 
 
   // 53. Maximum Subarray
@@ -131,7 +131,7 @@ var sortColors = function (nums) {
         }
     }
     return sum;
-    */
+    *
     let currSum = -Infinity, maxSum = -Infinity;
     for(const num of nums){
         currSum = Math.max(num,currSum+num)
@@ -141,3 +141,54 @@ var sortColors = function (nums) {
 };
 const nums = [-2,1,-3,4,-1,2,1,-5,4];
 console.log(maxSubArray(nums));
+*
+var spiralOrder = function(matrix) {
+    let top = 0, left = 0;
+    let down = matrix.length-1, right = matrix[0].length-1;
+    let dir = 0;
+    const result = [];
+    while(top <=down && left <=right){
+        if(dir === 0){
+            for(let i=left; i<=right; i++){
+                result.push(matrix[top][i])
+            }
+            top++;
+        }else if(dir === 1){
+            for(let i=top; i<=down; i++){
+                result.push(matrix[i][right])
+            }
+            right--;
+        }else if(dir === 2){
+            for(let i=right; i>= left; i--){
+                result.push(matrix[down][i])
+            }
+            down--;
+        }else if(dir === 3){
+            for(let i=down; i>=top; i--){
+                result.push(matrix[i][left])
+            }
+            left++;
+        }
+        dir = (dir+1)%4;
+    }
+    return result;
+};
+const matrix = [[1,2,3],[4,5,6],[7,8,9]];
+console.log(spiralOrder(matrix));
+
+*/
+var isAnagram = function(s, t) {
+    if(s.length !== t.length) return false;
+    const myMap = new Map();
+    for(const ch of s) myMap.set(ch,(myMap.get(ch) || 0)+1);
+    for(const ch of t){
+        if(!myMap.has(ch)) return false;
+        myMap.set(ch,myMap.get(ch)-1)
+        if(myMap.get(ch) < 0){
+            return false;
+        }
+    }
+    return true;
+};
+const s = "anagram", t = "nagaram";
+console.log(isAnagram(s,t));
