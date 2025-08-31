@@ -356,4 +356,48 @@ console.log(stack.items);
 console.log(stack.isEmpty());
 console.log(stack.size());
 
+
+// custom queue
+class Queue{
+    constructor(){
+        this.items = [];
+    }
+    enqueue(item){
+        this.items[this.items.length] = item;
+    }
+    dequeue(){
+        if(this.items.length === 0){
+            return null;
+        }
+        const item = this.items[0];
+        for(let i=1; i<this.items.length; i++){
+            this.items[i-1] = this.items[i];
+        }
+        this.items.length--;
+        return item;
+    }
+    peek(){
+        if(this.items.length === 0){
+            return null;
+        }
+        return this.items[0];
+    }
+    isEmpty(){
+        return this.items.length === 0;
+    }
+    size(){
+        return this.items.length;
+    }
+}
+
+const queue = new Queue();
+queue.enqueue(1);
+queue.enqueue(2);
+queue.enqueue(3);
+console.log(queue.items);
+console.log(queue.peek());
+queue.dequeue();
+console.log(queue.items);
+console.log(queue.isEmpty());
+console.log(queue.size());
 */
