@@ -273,8 +273,6 @@ var productExceptSelf = function(nums) {
 }
 
 console.log(productExceptSelf([1,2,3,4,0,0]))
-*/
-
 var maxArea = function(height) {
     let area = 0;
     /*
@@ -294,6 +292,7 @@ var maxArea = function(height) {
     }
     return area;
     */
+   /*
     let i=0; j=height.length-1;
     while(i<j){
         const diff = j-i;
@@ -313,3 +312,48 @@ var maxArea = function(height) {
 };
 const height = [1,8,6,2,5,4,8,3,7];
 console.log(maxArea(height));
+*/
+
+// custom stack
+/*
+class Stack {
+    constructor(){
+        this.items = [];
+    }
+    push(item){
+        this.items[this.items.length] = item;
+    }
+    pop(){
+        if(this.items.length === 0){
+            return null;
+        }
+        const item = this.items[this.items.length-1];
+        this.items.length--;
+        return item;
+    }
+    peek(){
+        if(this.items.length === 0){
+            return null;
+        }
+        return this.items[this.items.length-1];
+    }
+    isEmpty(){
+        return this.items.length === 0;
+    }
+    size(){
+        return this.items.length;
+    }
+}
+
+const stack = new Stack();
+stack.push(1);
+stack.push(2);
+stack.push(3);
+console.log(stack.items);
+console.log(stack.peek());
+stack.pop();
+console.log(stack.items);
+console.log(stack.isEmpty());
+console.log(stack.size());
+
+*/
