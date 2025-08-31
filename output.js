@@ -222,7 +222,7 @@ for(let str of strs){
 console.log(Object.values(hashMap))
 */
 
-
+/*
 var productExceptSelf = function(nums) {
     const n = nums.length;
     const result = new Array(n).fill(1);
@@ -244,6 +244,7 @@ var productExceptSelf = function(nums) {
 };
 const nums = [1,2,3,4];
 console.log(productExceptSelf(nums));
+*/
 
 
 /*
@@ -273,3 +274,42 @@ var productExceptSelf = function(nums) {
 
 console.log(productExceptSelf([1,2,3,4,0,0]))
 */
+
+var maxArea = function(height) {
+    let area = 0;
+    /*
+    for(let i=0; i<height.length; i++){
+        for(let j=i+1; j<height.length; j++){
+            const diff = j-i;
+            let total = 0;
+            if(height[i]> height[j]){
+                total = diff * height[j]
+            }else{
+                total = diff * height[i]
+            }
+            if(total> area){
+                area = total;
+            }
+        }
+    }
+    return area;
+    */
+    let i=0; j=height.length-1;
+    while(i<j){
+        const diff = j-i;
+        let total = 0;
+        if(height[i]<height[j]){
+            total = diff * height[i];
+            i++;
+        }else{
+            total = diff* height[j];
+            j--;
+        }
+        if(total > area){
+            area = total;
+        }
+    }
+    return area;
+};
+const height = [1,8,6,2,5,4,8,3,7];
+console.log(maxArea(height));
