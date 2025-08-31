@@ -220,7 +220,8 @@ for(let str of strs){
     hashMap[key].push(str)
 }
 console.log(Object.values(hashMap))
-*/
+*
+
 var productExceptSelf = function(nums) {
     const n = nums.length;
     const result = new Array(n).fill(1);
@@ -229,15 +230,43 @@ var productExceptSelf = function(nums) {
     for(let i = 0; i < n; i++){
         result[i] = prefix;
         prefix *= nums[i];
+        console.log(result)
     }
-
     let suffix = 1;
     for(let i = n - 1; i >= 0; i--){
         result[i] *= suffix;
         suffix *= nums[i];
+        console.log(result)
     }
 
     return result;
 };
 const nums = [1,2,3,4];
 console.log(productExceptSelf(nums));
+*/
+
+var productExceptSelf = function(nums) {
+    const n = nums.length;
+    let product = 1;
+    let zeroCount = 0;
+    const result = [];
+    for(const num of nums){
+        if(num === 0){
+            zeroCount++;
+        }else{
+            product *= num;
+        }
+    }
+    for(const num of nums){
+        if(zeroCount > 1){
+            result.push(0)
+        }else if(zeroCount === 1){
+            result.push(num === 0 ? product : 0)
+        }else{
+            result.push(product/num)
+        }
+    }
+    return result;
+}
+
+console.log(productExceptSelf([1,2,3,4,0,0]))
