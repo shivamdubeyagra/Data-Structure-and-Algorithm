@@ -220,7 +220,8 @@ for(let str of strs){
     hashMap[key].push(str)
 }
 console.log(Object.values(hashMap))
-*
+*/
+
 
 var productExceptSelf = function(nums) {
     const n = nums.length;
@@ -243,8 +244,9 @@ var productExceptSelf = function(nums) {
 };
 const nums = [1,2,3,4];
 console.log(productExceptSelf(nums));
-*/
 
+
+/*
 var productExceptSelf = function(nums) {
     const n = nums.length;
     let product = 1;
@@ -270,3 +272,4 @@ var productExceptSelf = function(nums) {
 }
 
 console.log(productExceptSelf([1,2,3,4,0,0]))
+*/
