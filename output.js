@@ -246,7 +246,6 @@ const nums = [1,2,3,4];
 console.log(productExceptSelf(nums));
 */
 
-
 /*
 var productExceptSelf = function(nums) {
     const n = nums.length;
@@ -292,7 +291,7 @@ var maxArea = function(height) {
     }
     return area;
     */
-   /*
+/*
     let i=0; j=height.length-1;
     while(i<j){
         const diff = j-i;
@@ -400,4 +399,53 @@ queue.dequeue();
 console.log(queue.items);
 console.log(queue.isEmpty());
 console.log(queue.size());
+*
+var groupAnagrams = function (strs) {
+  let hashMap = new Map();
+  for (let str of strs) {
+    let freq = new Array(26).fill(0);
+
+    for (let char of str) {
+      freq[char.charCodeAt(0) - "a".charCodeAt(0)]++;
+    }
+
+    let key = freq.join(",");
+
+    if (!hashMap.has(key)) {
+      hashMap.set(key, []);
+    }
+
+    hashMap.get(key).push(str);
+  }
+
+  return Array.from(hashMap.values());
+};
+const strs = ["eat", "tea", "tan", "ate", "nat", "bat"];
+console.log(groupAnagrams(strs));
 */
+
+var isPalindrome = function(s) {
+    let i = 0, j = s.length - 1;
+
+    while (i < j) {
+        while (i < j && !isAlphaNumeric(s[i])) i++;
+        while (i < j && !isAlphaNumeric(s[j])) j--;
+
+        if (s[i].toLowerCase() !== s[j].toLowerCase()) return false;
+
+        i++;
+        j--;
+    }
+
+    return true;
+};
+
+function isAlphaNumeric(ch) {
+    return (
+        (ch >= 'a' && ch <= 'z') ||
+        (ch >= 'A' && ch <= 'Z') ||
+        (ch >= '0' && ch <= '9')
+    );
+}
+const s = "A man, a plan, a canal: Panama";
+console.log(isPalindrome(s));
