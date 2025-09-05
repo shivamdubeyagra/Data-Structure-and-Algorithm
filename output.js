@@ -556,4 +556,6 @@ var reverseList = function(head) {
     }
     return prev;
 };
+console.log(reverseList(linkedList.head))
+
 
