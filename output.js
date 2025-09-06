@@ -558,4 +558,27 @@ var reverseList = function(head) {
 };
 console.log(reverseList(linkedList.head))
 
+var isHappy = function(n) {
+    const mySet = new Set();
+    while(n !== 1){
+        if(mySet.has(n)) return false; // loop detected
+        mySet.add(n);
+        n = sumNumber(n);
+    }
+    return true;
+};
+
+function sumNumber(num){
+    let sum = 0;
+    while(num > 0) {
+        // Get the last digit of the number
+        let digit = num % 10; 
+        // Square the digit and add it to the sum
+        sum += digit * digit; 
+        // Remove the last digit from the number
+        num = Math.floor(num / 10); 
+    }
+    return sum;
+}
+console.log(isHappy(2))
 
