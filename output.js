@@ -450,7 +450,7 @@ function isAlphaNumeric(ch) {
 const s = "A man, a plan, a canal: Panama";
 console.log(isPalindrome(s));
 */
-
+/*
 // Linked List 
 class Node {
     constructor(value){
@@ -603,4 +603,6 @@ while (i < list1.length || j < list2.length) {
   }
 }
 console.log(result); // [1, 1, 2, 3, 4, 4]
+
+*/
 
