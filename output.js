@@ -582,3 +582,25 @@ function sumNumber(num){
 }
 console.log(isHappy(2))
 
+const list1 = [1, 2, 4], list2 = [1, 3, 4];
+const result = [];
+let i = 0, j = 0;
+while (i < list1.length || j < list2.length) {
+  if (i === list1.length) {
+    result.push(...list2.slice(j));
+    break;
+  }
+  if (j === list2.length) {
+    result.push(...list1.slice(i));
+    break;
+  }
+  if (list1[i] < list2[j]) {
+    result.push(list1[i]);
+    i++;
+  } else {
+    result.push(list2[j]);
+    j++;
+  }
+}
+console.log(result); // [1, 1, 2, 3, 4, 4]
+
