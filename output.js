@@ -604,5 +604,87 @@ while (i < list1.length || j < list2.length) {
 }
 console.log(result); // [1, 1, 2, 3, 4, 4]
 
-*/
 
+console.log('hello');
+
+async function getUser() {
+    const github = 'https://api.github.com/users/shivamdubeyagra';
+    const user = await fetch(github);
+    const data = await user.json();
+    console.log(data);
+}
+getUser();
+
+
+console.log('lsdjflsdjkfsdf')
+
+
+const myPromise = new Promise((resolve, reject)=>{
+    let success = true;
+    if(success){
+        resolve('success')
+    }else{
+        reject('failed')
+    }
+})
+myPromise
+.then((value)=>console.log(value))
+.catch((error)=>console.log(error))
+async function consumePromise() {
+    try {
+      const result = await myPromise;
+      console.log(result); // ✅ Operation successful!
+    } catch (error) {
+      console.error(error); // ❌ Operation failed!
+    }
+  }
+  
+  consumePromise();
+  *
+
+
+  
+console.log("Start"); // 1 stack  // event loop
+
+setTimeout(() => console.log("setTimeout"), 0); //4 macrotask
+
+Promise.resolve().then(() => console.log("Promise")); // 3 microtask
+
+console.log("End"); //2 stack
+
+*
+
+console.log("Start");
+
+process.nextTick(() => console.log("nextTick")); // specific microtask
+
+Promise.resolve().then(() => console.log("Promise")); // general microtask
+
+console.log("End");
+
+setTimeout(() => console.log("setTimeout"), 0);
+
+setImmediate(() => console.log("setImmediate"));
+*/
+var merge = function(nums1, m, nums2, n) {
+    let i = m - 1; // last index of nums1's valid part
+    let j = n - 1; // last index of nums2
+    let k = m + n - 1; // last index of nums1 (including extra space)
+
+    while (j >= 0) {
+        if (i >= 0 && nums1[i] > nums2[j]) {
+            nums1[k] = nums1[i]; // put larger element at the end
+            i--;
+        } else {
+            nums1[k] = nums2[j]; // put nums2[j] at the end
+            j--;
+        }
+        k--;
+    }
+};
+const nums1 = [1, 2, 3, 0, 0, 0];
+const m = 3;
+const nums2 = [2, 5, 6];
+const n = 3;
+merge(nums1, m, nums2, n);
+console.log(nums1);
