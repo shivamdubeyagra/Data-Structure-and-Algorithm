@@ -666,6 +666,8 @@ setTimeout(() => console.log("setTimeout"), 0);
 
 setImmediate(() => console.log("setImmediate"));
 */
+
+/*
 var merge = function(nums1, m, nums2, n) {
     let i = m - 1; // last index of nums1's valid part
     let j = n - 1; // last index of nums2
@@ -688,3 +690,25 @@ const nums2 = [2, 5, 6];
 const n = 3;
 merge(nums1, m, nums2, n);
 console.log(nums1);
+*/
+var longestConsecutive = function (nums) {
+  if (nums.length === 0) return 0;
+  const aset = new Set(nums);
+  let longestSeq = 0;
+  
+  for (const num of aset) {
+    if (!aset.has(num - 1)) {
+      let currNum = num;
+      let currStk = 1;
+      while (aset.has(currNum + 1)) {
+        currNum += 1;
+        currStk += 1;
+      }
+      longestSeq = Math.max(longestSeq, currStk);
+    }
+  }
+  return longestSeq;
+};
+
+const nums = [100, 4, 200, 1, 3, 2];
+console.log(longestConsecutive(nums));
