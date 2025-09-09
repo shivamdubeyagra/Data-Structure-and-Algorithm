@@ -690,7 +690,7 @@ const nums2 = [2, 5, 6];
 const n = 3;
 merge(nums1, m, nums2, n);
 console.log(nums1);
-*/
+*
 var longestConsecutive = function (nums) {
   if (nums.length === 0) return 0;
   const aset = new Set(nums);
@@ -712,3 +712,26 @@ var longestConsecutive = function (nums) {
 
 const nums = [100, 4, 200, 1, 3, 2];
 console.log(longestConsecutive(nums));
+*/
+function leadersArray(arr){
+    const n = arr.length;
+    const result = [];
+    for(let i=0; i<n; i++){
+        let isLeader = true;
+        for(let j=i+1; j<n; j++){
+            if(arr[i]>=arr[j]){
+                isLeader = true;
+            }else{
+                isLeader = false;
+                break;
+            }
+        }
+        if(isLeader){
+            result.push(arr[i]);
+        }
+    }
+    return result;
+}
+const arr = [5, 10, 20, 40];
+console.log(leadersArray(arr));
+
