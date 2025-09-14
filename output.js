@@ -732,6 +732,6 @@ function leadersArray(arr){
     }
     return result;
 }
-const arr = [5, 10, 20, 40];
+const arr = [5, 10,60, 20, 40];
 console.log(leadersArray(arr));
 
