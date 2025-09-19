@@ -713,6 +713,7 @@ var longestConsecutive = function (nums) {
 const nums = [100, 4, 200, 1, 3, 2];
 console.log(longestConsecutive(nums));
 */
+/*
 function leadersArray(arr){
     const n = arr.length;
     const result = [];
@@ -734,4 +735,6 @@ function leadersArray(arr){
 }
 const arr = [5, 10,60, 20, 40];
 console.log(leadersArray(arr));
+
+*/
 
