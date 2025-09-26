@@ -72,15 +72,38 @@ class LinkedList {
     }
 };
 const linkedList = new LinkedList();
-console.log(linkedList.prepend(5))
-console.log(linkedList.prepend(10))
-console.log(linkedList.prepend(15))
+// console.log(linkedList.prepend(5))
+// console.log(linkedList.prepend(10))
+// console.log(linkedList.prepend(15))
+// linkedList.print();
+// console.log(linkedList.append(20))
+// linkedList.print();
+// console.log(linkedList.isEmpty());
+// console.log(linkedList.getSize());
+// console.log(linkedList.insert(25,2))
+// linkedList.print();
+// console.log(linkedList.insert(30,30))
+// linkedList.print();
+linkedList.append(1);
+linkedList.append(1);
+linkedList.append(2);
+linkedList.append(3);
+linkedList.append(3);
 linkedList.print();
-console.log(linkedList.append(20))
-linkedList.print();
-console.log(linkedList.isEmpty());
-console.log(linkedList.getSize());
-console.log(linkedList.insert(25,2))
-linkedList.print();
-console.log(linkedList.insert(30,30))
-linkedList.print();
+
+function removeDuplicateFromLinkedList(head){
+    let curr = head;
+    while(curr && curr.next){
+        if(curr.value === curr.next.value){
+            curr.next = curr.next.next;
+            console.log(curr,'1')
+        }else{
+            curr = curr.next;
+            console.log(curr,'2')
+        }
+        console.log(curr,'3')
+    }
+    return head;
+}
+removeDuplicateFromLinkedList(linkedList.head);
+console.log(removeDuplicateFromLinkedList(linkedList.head));
