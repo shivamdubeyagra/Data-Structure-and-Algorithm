@@ -738,7 +738,7 @@ console.log(leadersArray(arr));
 
 */
 
-
+/*
 var reversWords = function(s){
     let arr = Array.from(s)
     let n = arr.length
@@ -781,3 +781,27 @@ var reversWords = function(s){
 }
 const s = "   the   sky is   blue  "
 console.log(reversWords(s));
+*/
+/*
+var romanToInt = function(s) {
+  const roman = {I:1, V:5, X:10, L:50, C:100, D:500, M:1000};
+  let total = 0;
+
+  for(let i = 0; i < s.length; i++) {
+    const curr = roman[s[i]];
+    const next = roman[s[i+1]] || 0; // default 0 for last element
+
+    if(curr < next) {
+      total -= curr; // subtraction case
+    } else {
+      total += curr; // normal addition
+    }
+  }
+
+  return total;
+};
+const s = "MCMXCIV";
+console.log(romanToInt(s))
+*/
+
+
