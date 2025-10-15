@@ -107,3 +107,8 @@ function removeDuplicateFromLinkedList(head){
 }
 removeDuplicateFromLinkedList(linkedList.head);
 console.log(removeDuplicateFromLinkedList(linkedList.head));
+
+const ninetyDaysAgo = new Date();
+console.log(ninetyDaysAgo.getDate());
+ninetyDaysAgo.setDate(ninetyDaysAgo.getDate() - 90); 
+console.log(ninetyDaysAgo);

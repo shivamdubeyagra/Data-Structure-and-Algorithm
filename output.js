@@ -738,3 +738,46 @@ console.log(leadersArray(arr));
 
 */
 
+
+var reversWords = function(s){
+    let arr = Array.from(s)
+    let n = arr.length
+    let result = [];
+    let i= 0;
+    while(i<n && arr[i] ===" ") i++;
+
+    while(i<n){
+        if(arr[i]!=" "){
+            result.push(arr[i])
+        }else{
+            while(i<n && arr[i] ===" ") i++;
+            if(i<n) result.push(" ");
+            continue;
+        }
+        i++;
+    }
+    const reverse = (arr, left, right)=>{
+        while(left<right){
+            let temp = arr[left];
+            arr[left] = arr[right];
+            arr[right] = temp;
+            left++;
+            right--;
+        }
+    }
+    reverse(result, 0, result.length - 1);
+    let start = 0;
+    for (let end = 0; end <= result.length; end++) {
+        if (end === result.length || result[end] === ' ') {
+            reverse(result, start, end - 1);
+            start = end + 1;
+        }
+    }
+    let ans = "";
+    for(let i=0; i<result.length; i++){
+        ans+=result[i]
+    }
+    return ans;
+}
+const s = "   the   sky is   blue  "
+console.log(reversWords(s));
