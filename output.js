@@ -803,5 +803,26 @@ var romanToInt = function(s) {
 const s = "MCMXCIV";
 console.log(romanToInt(s))
 */
+/*
 
+function countSubstring(s) {
+    let lastSeen = { a: -1, b: -1, c: -1 }; // store last seen index
+    let count = 0;
 
+    for (let i = 0; i < s.length; i++) {
+        lastSeen[s[i]] = i; // update the latest index of this char
+
+        // find the smallest last seen index among 'a', 'b', and 'c'
+        const minLastSeen = Math.min(lastSeen.a, lastSeen.b, lastSeen.c);
+
+        // if all three chars have been seen at least once
+        if (minLastSeen !== -1) {
+            count += minLastSeen + 1;
+        }
+    }
+
+    return count;
+}
+
+console.log(countSubstring("abcabc")); // Output: 10
+*/
