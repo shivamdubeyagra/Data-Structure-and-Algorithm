@@ -15,7 +15,7 @@ function arrayToLList(arr) {
     return head;
 }
 
-let arr = [10, 20, 30, 40];
+let arr = [10, 20, 30, 40,50];
 let list = arrayToLList(arr);
 console.log(list);
 
@@ -28,4 +28,16 @@ function traverseLinkedList(head) {
     }
 }
 traverseLinkedList(list);
+
+function lengthOfLinkedList(head) {
+    let length = 0;
+    let curr = head;
+    while (curr !== null) {
+        curr= curr.next;
+        length++;
+    }
+    return length;
+}
+console.log(lengthOfLinkedList(list));
+
 
