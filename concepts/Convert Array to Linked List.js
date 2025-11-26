@@ -1,16 +1,16 @@
 class ListNode {
-    constructor(value){
+    constructor(value) {
         this.value = value;
         this.next = null;
     }
 }
-function arrayToLList(arr){
-    if(arr.length === 0) return null;
+function arrayToLList(arr) {
+    if (arr.length === 0) return null;
     let head = new ListNode(arr[0]);
     let current = head;
-    for(let i=1; i<arr.length; i++){
+    for (let i = 1; i < arr.length; i++) {
         current.next = new ListNode(arr[i]);
-        current =  current.next;
+        current = current.next;
     }
     return head;
 }
@@ -18,3 +18,14 @@ function arrayToLList(arr){
 let arr = [10, 20, 30, 40];
 let list = arrayToLList(arr);
 console.log(list);
+
+// traverseLinkedList in linked List
+function traverseLinkedList(head) {
+    let curr = head;
+    while (curr !== null) {
+        console.log(curr.value)
+        curr= curr.next;
+    }
+}
+traverseLinkedList(list);
+
