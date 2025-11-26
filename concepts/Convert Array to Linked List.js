@@ -41,3 +41,13 @@ function lengthOfLinkedList(head) {
 console.log(lengthOfLinkedList(list));
 
 
+function searchLinkedList(head,tar){
+    let curr = head;
+    while(curr !== null){
+        if(curr.value === tar) return true
+        curr = curr.next;
+    }
+    return false
+}
+const tar = 30;
+console.log(searchLinkedList(list,tar));
