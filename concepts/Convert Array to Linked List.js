@@ -62,7 +62,8 @@ function deleteHead(head){
 
     return head;
 }
-// console.log(deleteHead(list))
+list = deleteHead(list)
+console.log(list)
 
 function deleteTail(head){
     if(head === null) return null;
@@ -74,4 +75,5 @@ function deleteTail(head){
     curr.next = null;
     return head;
 }
-console.log(deleteTail(list))
+list = deleteTail(list)
+console.log(list);
