@@ -51,3 +51,15 @@ function searchLinkedList(head,tar){
 }
 const tar = 30;
 console.log(searchLinkedList(list,tar));
+
+// deleteHead
+function deleteHead(head){
+    if(head === null) return null;
+
+    let newHead = head.next;
+    head.next = null;
+    head = newHead;
+
+    return head;
+}
+console.log(deleteHead(list))
