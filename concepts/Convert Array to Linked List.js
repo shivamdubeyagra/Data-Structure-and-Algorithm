@@ -15,7 +15,7 @@ function arrayToLList(arr) {
     return head;
 }
 
-let arr = [10, 20, 30, 40,50];
+let arr = [10, 20, 30, 40,50,60];
 let list = arrayToLList(arr);
 console.log(list);
 
@@ -106,25 +106,26 @@ function deleteKth(head,k){
 // console.log(list.temp,list)
 
 function deleteRange(head, k, m) {
-  // 1️⃣ If list is empty
+  // invalid range
   if (head === null) return null;
+  if (k > m) return head;  // nothing to delete
 
-  // 2️⃣ If k == 0 → delete from head
+  // 1️⃣ If k == 0 → delete from head
   if (k === 0) {
     let current = head;
     let index = 0;
 
-    // move to m-th node
+    // move current to (m+1)-th node
     while (current !== null && index < m) {
       current = current.next;
       index++;
     }
 
-    // new head will be node after m
+    // new head is (m+1)-th node (ya null)
     return current;
   }
 
-  // 3️⃣ Find (k-1)-th node (just before start of deletion)
+  // 2️⃣ Find (k-1)-th node (just before start of deletion)
   let current = head;
   let index = 0;
 
@@ -136,20 +137,29 @@ function deleteRange(head, k, m) {
   // If k is out of range - nothing to delete
   if (current === null || current.next === null) return head;
 
-  // 4️⃣ Find node at m-th index
-  let temp = current;
+  // 3️⃣ temp ko k-th node par rakhna hai
+  let temp = current.next;
   let count = k;
 
+  // Move temp from k-th to (m+1)-th node
   while (temp !== null && count <= m) {
     temp = temp.next;
     count++;
   }
 
-  // 5️⃣ Connect (k-1)-th node → (m+1)-th node
+  // 4️⃣ Connect (k-1)-th node → (m+1)-th node
   current.next = temp;
 
   return head;
 }
 
-list = deleteRange(list, 2, 4);
-console.log(list)
+// list = deleteRange(list, 1, 1);
+// list = deleteRange(list, 2, 4);
+// list = deleteRange(list, 0, 2);
+// list = deleteRange(list, 3, 10);
+// list = deleteRange(list, 0, 100);
+// list = deleteRange(list, 5, 7);
+// list = deleteRange(list, 2, 1);
+// list = deleteRange(list, 0, 0);
+// list = deleteRange(list, 1, 100);
+// console.log(JSON.stringify(list))
