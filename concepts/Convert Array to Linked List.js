@@ -102,5 +102,54 @@ function deleteKth(head,k){
 
   return {head,temp};
 }
-list = deleteKth(list,0);
-console.log(list.temp,list)
+// list = deleteKth(list,0);
+// console.log(list.temp,list)
+
+function deleteRange(head, k, m) {
+  // 1️⃣ If list is empty
+  if (head === null) return null;
+
+  // 2️⃣ If k == 0 → delete from head
+  if (k === 0) {
+    let current = head;
+    let index = 0;
+
+    // move to m-th node
+    while (current !== null && index < m) {
+      current = current.next;
+      index++;
+    }
+
+    // new head will be node after m
+    return current;
+  }
+
+  // 3️⃣ Find (k-1)-th node (just before start of deletion)
+  let current = head;
+  let index = 0;
+
+  while (current !== null && index < k - 1) {
+    current = current.next;
+    index++;
+  }
+
+  // If k is out of range - nothing to delete
+  if (current === null || current.next === null) return head;
+
+  // 4️⃣ Find node at m-th index
+  let temp = current;
+  let count = k;
+
+  while (temp !== null && count <= m) {
+    temp = temp.next;
+    count++;
+  }
+
+  // 5️⃣ Connect (k-1)-th node → (m+1)-th node
+  current.next = temp;
+
+  return head;
+}
+
+list = deleteRange(list, 2, 4);
+console.log(list)
