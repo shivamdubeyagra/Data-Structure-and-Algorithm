@@ -163,3 +163,11 @@ function deleteRange(head, k, m) {
 // list = deleteRange(list, 0, 0);
 // list = deleteRange(list, 1, 100);
 // console.log(JSON.stringify(list))
+
+function insertAtHead(head, value) {
+    let newNode = new ListNode(value);  // create new node
+    newNode.next = head;                // point to existing head
+    return newNode;                     // newNode becomes new head
+}
+list = insertAtHead(list, 5);
+console.log(JSON.stringify(list, null, 2));
