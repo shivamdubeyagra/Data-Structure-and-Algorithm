@@ -27,7 +27,7 @@ function traverseLinkedList(head) {
         curr= curr.next;
     }
 }
-traverseLinkedList(list);
+// traverseLinkedList(list);
 
 function lengthOfLinkedList(head) {
     let length = 0;
@@ -50,7 +50,7 @@ function searchLinkedList(head,tar){
     return false
 }
 const tar = 30;
-console.log(searchLinkedList(list,tar));
+// console.log(searchLinkedList(list,tar));
 
 // deleteHead
 function deleteHead(head){
@@ -62,8 +62,8 @@ function deleteHead(head){
 
     return head;
 }
-list = deleteHead(list)
-console.log(list)
+// list = deleteHead(list)
+// console.log(list)
 
 function deleteTail(head){
     if(head === null) return null;
@@ -75,5 +75,32 @@ function deleteTail(head){
     curr.next = null;
     return head;
 }
-list = deleteTail(list)
-console.log(list);
+// list = deleteTail(list)
+// console.log(list);
+
+function deleteKth(head,k){
+    if(head === null) return null;
+    if (k === 0){
+        let newHead = head.next;
+        head.next = null;
+        return newHead;
+    }
+    let curr = head;
+    let index = 0;
+    while(curr !== null && index < k-1){
+        curr = curr.next;
+        index++;
+    }
+      if (curr === null || curr.next === null) {
+    return head;   // no deletion
+  }
+
+  // 5️⃣ Delete k-th node
+  let temp = curr.next;    // node to delete
+  curr.next = temp.next;   // bypass it
+  temp.next = null;           // detach deleted node
+
+  return {head,temp};
+}
+list = deleteKth(list,0);
+console.log(list.temp,list)
