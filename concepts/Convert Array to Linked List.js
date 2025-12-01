@@ -171,3 +171,14 @@ function insertAtHead(head, value) {
 }
 list = insertAtHead(list, 5);
 console.log(JSON.stringify(list, null, 2));
+
+function insertAtTail(head,value){
+    let curr = head;
+    while(curr && curr.next){
+        curr = curr.next;
+    }
+    curr.next = new ListNode(value);
+    return head;
+}
+list = insertAtTail(list,13)
+console.log(JSON.stringify(list, null, 2));
