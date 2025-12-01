@@ -246,3 +246,37 @@ function insertAtKMultiple(head, k, arr) {
 const arr3 = [1000, 2000];
 list = insertAtKMultiple(list, 3, arr3);
 console.log(JSON.stringify(list, null, 2));
+
+const arr4 = [1,2,4];
+const arr5 = [1,3,4];
+
+// Convert arrays to linked lists and merge them
+const list1 = arrayToLList(arr4);
+const list2 = arrayToLList(arr5);
+function mergeTwoLists(list1, list2) {
+    // Placeholder for merge logic
+    
+    // // Create a dummy node to simplify the logic
+    let dummy = new ListNode(0);
+    let current = dummy;
+    
+    // // Traverse both lists and connect nodes in sorted order
+    while (list1 !== null && list2 !== null) {
+        if (list1.value <= list2.value) {
+            current.next = list1;
+            list1 = list1.next;
+        } else {
+            current.next = list2;
+            list2 = list2.next;
+        }
+        current = current.next;
+    }
+    
+    // Connect remaining nodes (if any)
+    current.next = list1 || list2;
+    
+    return dummy.next;
+}
+
+const ans = mergeTwoLists(list1, list2);
+console.log("Merged list:", JSON.stringify(ans, null, 2));
