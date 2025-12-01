@@ -180,7 +180,7 @@ function insertAtTail(head,value){
     curr.next = new ListNode(value);
     return head;
 }
-list = insertAtTail(list,13)
+list = insertAtTail(list, 70);
 console.log(JSON.stringify(list, null, 2));
 
 function insertAtK(head, k, value) {
@@ -210,5 +210,39 @@ function insertAtK(head, k, value) {
     return head;
 }
 
-list = insertAtK(list, 8, 25);
+list = insertAtK(list, 8, 80);
+console.log(JSON.stringify(list, null, 2));
+
+function insertMultipleAtTail(head,arr){
+    for(let i = 0; i < arr.length; i++){
+        head = insertAtTail(head, arr[i]);
+    }
+    return head;
+}
+const arr1 = [90, 100, 200, 300];
+list = insertMultipleAtTail(list, arr1);
+console.log(JSON.stringify(list, null, 2));
+
+function insertAtHeadMultiple(head, arr) {
+    for (let i = arr.length - 1; i >= 0; i--) {
+        head = insertAtHead(head, arr[i]);
+    }
+    return head;
+}
+
+// Test the function
+const arr2 = [1, 2, 3];
+list = insertAtHeadMultiple(list, arr2);
+console.log(JSON.stringify(list, null, 2));
+
+function insertAtKMultiple(head, k, arr) {
+    for (let i = 0; i < arr.length; i++) {
+        head = insertAtK(head, k + i, arr[i]);
+    }
+    return head;
+}
+
+// Test the function
+const arr3 = [1000, 2000];
+list = insertAtKMultiple(list, 3, arr3);
 console.log(JSON.stringify(list, null, 2));
