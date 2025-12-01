@@ -182,3 +182,33 @@ function insertAtTail(head,value){
 }
 list = insertAtTail(list,13)
 console.log(JSON.stringify(list, null, 2));
+
+function insertAtK(head, k, value) {
+    if (head === null) {
+        return new ListNode(value);
+    }
+    if (k === 0) {
+        return insertAtHead(head, value);
+    }
+    
+    let curr = head;
+    let index = 0;
+    
+    while (curr && index < k - 1) {
+        curr = curr.next;
+        index++;
+    }
+    
+    if (curr === null) {
+        return insertAtTail(head, value);
+    }
+    
+    let newNode = new ListNode(value);
+    newNode.next = curr.next;
+    curr.next = newNode;
+    
+    return head;
+}
+
+list = insertAtK(list, 8, 25);
+console.log(JSON.stringify(list, null, 2));
