@@ -219,9 +219,9 @@ function insertMultipleAtTail(head,arr){
     }
     return head;
 }
-const arr1 = [90, 100, 200, 300];
-list = insertMultipleAtTail(list, arr1);
-console.log(JSON.stringify(list, null, 2));
+// const arr1 = [90, 100, 200, 300];
+// list = insertMultipleAtTail(list, arr1);
+// console.log(JSON.stringify(list, null, 2));
 
 function insertAtHeadMultiple(head, arr) {
     for (let i = arr.length - 1; i >= 0; i--) {
@@ -231,9 +231,9 @@ function insertAtHeadMultiple(head, arr) {
 }
 
 // Test the function
-const arr2 = [1, 2, 3];
-list = insertAtHeadMultiple(list, arr2);
-console.log(JSON.stringify(list, null, 2));
+// const arr2 = [1, 2, 3];
+// list = insertAtHeadMultiple(list, arr2);
+// console.log(JSON.stringify(list, null, 2));
 
 function insertAtKMultiple(head, k, arr) {
     for (let i = 0; i < arr.length; i++) {
@@ -243,9 +243,9 @@ function insertAtKMultiple(head, k, arr) {
 }
 
 // Test the function
-const arr3 = [1000, 2000];
-list = insertAtKMultiple(list, 3, arr3);
-console.log(JSON.stringify(list, null, 2));
+// const arr3 = [1000, 2000];
+// list = insertAtKMultiple(list, 3, arr3);
+// console.log(JSON.stringify(list, null, 2));
 
 const arr4 = [1,2,4];
 const arr5 = [1,3,4];
@@ -280,3 +280,41 @@ function mergeTwoLists(list1, list2) {
 
 const ans = mergeTwoLists(list1, list2);
 console.log("Merged list:", JSON.stringify(ans, null, 2));
+
+// Make cycle: last node -> node at index 2 (value = 30)
+function makeCycle(head, pos) {
+    if (pos < 0) return head;
+
+    let tail = head;
+    let cycleNode = null;
+    let index = 0;
+
+    while (tail.next !== null) {
+        if (index === pos) cycleNode = tail;
+        tail = tail.next;
+        index++;
+    }
+
+    // now tail is last node
+    // connect tail.next to cycleNode
+    tail.next = cycleNode;
+
+    return head;
+}
+list = makeCycle(list, 2);
+// console.log(JSON.stringify(list, null, 2));
+
+function hasCycle (head) {
+    let slow = head;
+    let fast = head;
+    while(fast !==null && fast.next !==null){
+        slow = slow.next
+        fast =fast.next.next;
+        if(slow === fast){
+            return true;
+        }
+    }
+    return false;
+};
+
+console.log(hasCycle(list));
