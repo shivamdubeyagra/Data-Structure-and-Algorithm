@@ -19,4 +19,15 @@ function arrayToLList(arr) {
 
 let arr = [10, 20, 30, 40,50,60];
 let list = arrayToLList(arr);
+// console.log(list);
+
+function removeHead(head){
+    if(head === null) return null;
+    head = head.next;
+    if(head !== null){
+        head.prev = null;
+    }
+    return head;
+}
+list = removeHead(list);
 console.log(list);
