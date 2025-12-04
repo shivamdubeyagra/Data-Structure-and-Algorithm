@@ -17,7 +17,7 @@ function arrayToLList(arr) {
     return head;
 }
 
-let arr = [10, 20, 30, 40,50,60];
+let arr = [10, 20];
 let list = arrayToLList(arr);
 // console.log(list);
 
@@ -31,3 +31,19 @@ function removeHead(head){
 }
 list = removeHead(list);
 console.log(list);
+
+function removeTail(head){
+    if(head === null) return null;
+    if (head.next === null) {
+        return null;
+    }
+    let curr = head;
+    while(curr.next.next !== null){
+        curr = curr.next;
+    }
+    curr.next.prev = null;
+    curr.next = null;
+    return head;
+
+}
+list = removeTail(list)
