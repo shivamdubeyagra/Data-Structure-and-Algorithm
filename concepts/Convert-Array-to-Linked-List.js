@@ -301,7 +301,7 @@ function makeCycle(head, pos) {
 
     return head;
 }
-list = makeCycle(list, 2);
+// list = makeCycle(list, 2);
 // console.log(JSON.stringify(list, null, 2));
 
 function hasCycle (head) {
@@ -318,3 +318,34 @@ function hasCycle (head) {
 };
 
 console.log(hasCycle(list));
+
+var reverseList = function(head) {
+    let prev = null;
+    let curr = head;
+
+    while (curr) {
+        let next = curr.next; // store next
+        curr.next = prev;     // reverse pointer
+        prev = curr;          // move prev
+        curr = next;          // move curr
+    }
+
+    return prev;
+};
+
+list = reverseList(list)
+var reverseListR = function(head) {
+    // base case
+    if (head === null || head.next === null) {
+        return head;
+    }
+
+    // reverse rest of the list
+    let newHead = reverseListR(head.next);
+
+    let front = head.next;
+    front.next = head;
+    head.next = null;
+    return newHead;
+};
+list = reverseListR(list)
